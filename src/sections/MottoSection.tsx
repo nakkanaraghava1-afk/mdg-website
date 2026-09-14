@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { ArrowRight, ChevronDown } from 'lucide-react';
+import { ArrowRight} from 'lucide-react';
 
 export const MottoSection: React.FC = () => {
   const [isMounted, setIsMounted] = useState(false);
