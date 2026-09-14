@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Outlet, NavLink, useNavigate } from 'react-router-dom';
 import { signOut } from 'firebase/auth';
 import { auth } from '../../lib/firebase';
-import { Users, ClipboardList, LogOut, Menu, X, LayoutDashboard } from 'lucide-react';
+import { Users, ClipboardList, LogOut, Menu} from 'lucide-react';
 
 export const AdminLayout: React.FC = () => {
   const [sidebarOpen, setSidebarOpen] = useState(false);
