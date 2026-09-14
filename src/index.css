@@ -1,0 +1,14 @@
+@import "tailwindcss";
+
+@theme {
+  /* We will refine the exact hex code once you upload the logo */
+  --color-mdg-orange: #F97316; 
+  --color-mdg-charcoal: #1F2937;
+  --color-mdg-gray: #F3F4F6;
+}
+
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
