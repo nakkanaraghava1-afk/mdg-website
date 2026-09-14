@@ -129,7 +129,7 @@ export const Footer: React.FC = () => {
                 </div>
                 <div>
                   <p className="text-xs text-gray-500 mb-0.5">Location</p>
-                  <p className="text-white text-sm">Business Location</p>
+                  <p className="text-white text-sm">G-2, Seetharama Residency, 45-58-18/2, Narasimha Nagar, Akkayyapalem, Visakhapatnam, Andhra Pradesh 530016</p>
                 </div>
               </div>
             </div>
@@ -146,7 +146,7 @@ export const Footer: React.FC = () => {
             </h4>
             <div className="w-full flex-1 bg-gray-800 rounded-lg overflow-hidden border border-gray-700 p-1 relative z-10">
               <iframe 
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d30387.12652855504!2d83.34392990285346!3d17.820305121099665!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a395bef536eaa5d%3A0x4b04cce28dc9b73e!2sSrinivasa%20Nagar%2C%20Madhurawada%2C%20Visakhapatnam%2C%20Andhra%20Pradesh!5e0!3m2!1sen!2sin!4v1789231683493!5m2!1sen!2sin" 
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3612.0478872981143!2d83.2992972!3d17.7412323!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a3943aa798bcbab%3A0x80d79465363bf20c!2sMannan%20Design%20Group!5e1!3m2!1sen!2sin!4v1789413792523!5m2!1sen!2sin" 
                 width="100%" 
                 height="100%" 
                 style={{ border: 0, borderRadius: '6px' }} 

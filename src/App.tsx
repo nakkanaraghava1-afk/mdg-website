@@ -4,7 +4,7 @@ import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 // Public Components
 import { Header } from './sections/Header';
 import { MottoSection } from './sections/MottoSection';
-// Note: CeoProfile is removed, TeamSection now handles it
+import { AboutSection } from './sections/AboutSection'; // <--- NEW
 import { TeamSection } from './sections/TeamSection';
 import { ProjectsSection } from './sections/ProjectsSection';
 import { ServicesSection } from './sections/ServicesSection';
@@ -28,9 +28,10 @@ const PublicLayout = () => (
     <main>
       <div id="motto"><MottoSection /></div>
       
-      {/* unified Leadership & Team Section */}
-      <div id="team"><TeamSection /></div>
+      {/* New About Section inserted right below the Motto/Hero */}
+      <div id="about"><AboutSection /></div>
       
+      <div id="team"><TeamSection /></div>
       <div id="projects"><ProjectsSection /></div>
       <div id="services"><ServicesSection /></div>
       <div id="contact"><ContactSection /></div>

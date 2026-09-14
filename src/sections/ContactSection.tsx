@@ -121,7 +121,7 @@ export const ContactSection: React.FC = () => {
                 <div className="flex-1">
                   <p className="text-[11px] font-bold tracking-widest text-gray-400 uppercase mb-1">Headquarters</p>
                   <p className="text-xl font-bold text-gray-900 leading-none mb-1.5">Business Location</p>
-                  <p className="text-sm text-gray-500">Vizianagaram / Hyderabad</p>
+                  <p className="text-sm text-gray-500">G-2, Seetharama Residency, 45-58-18/2, Narasimha Nagar, Akkayyapalem, Visakhapatnam, Andhra Pradesh 530016</p>
                 </div>
               </div>
             </div>
