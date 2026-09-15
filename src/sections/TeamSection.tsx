@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { collection, getDocs } from 'firebase/firestore';
 import { db } from '../lib/firebase';
-import { X, Mail } from 'lucide-react';
+import { X } from 'lucide-react';
 
 export interface TeamMember {
   id: string;
@@ -94,10 +94,16 @@ export const TeamSection: React.FC = () => {
                 <div className="relative z-10">
                   <h3 className="text-3xl md:text-4xl font-serif font-bold text-gray-900 mb-2">{ceo.name}</h3>
                   <p className="text-orange-500 font-bold tracking-[0.15em] uppercase text-xs md:text-sm mb-6">{ceo.designation}</p>
-                  <div className="w-12 h-[3px] bg-gray-200 mb-6 mx-auto group-hover:bg-orange-500 transition-colors duration-500"></div>
-                  <p className="text-gray-600 text-sm md:text-lg leading-relaxed whitespace-pre-line max-w-2xl mx-auto px-2 line-clamp-3 md:line-clamp-none">
-                    {ceo.bio}
-                  </p>
+                  
+                  {/* Conditional Bio for CEO */}
+                  {ceo.bio && ceo.bio.trim() !== '' && (
+                    <>
+                      <div className="w-12 h-[3px] bg-gray-200 mb-6 mx-auto group-hover:bg-orange-500 transition-colors duration-500"></div>
+                      <p className="text-gray-600 text-sm md:text-lg leading-relaxed whitespace-pre-line max-w-2xl mx-auto px-2 line-clamp-3 md:line-clamp-none">
+                        {ceo.bio}
+                      </p>
+                    </>
+                  )}
                   <p className="text-xs font-bold text-orange-500 uppercase tracking-widest mt-6 opacity-0 group-hover:opacity-100 transition-opacity">Read Full Profile &rarr;</p>
                 </div>
               </div>
@@ -117,9 +123,15 @@ export const TeamSection: React.FC = () => {
                   
                   <div className="flex flex-col items-center flex-1 w-full">
                     <h4 className="font-serif font-bold text-sm md:text-lg text-gray-900 leading-tight mb-1 group-hover:text-orange-600 transition-colors line-clamp-1 w-full">{member.name}</h4>
-                    <p className="text-[9px] md:text-xs text-orange-500 font-bold uppercase tracking-wider mb-2 md:mb-3 line-clamp-2">{member.designation}</p>
-                    <div className="h-[2px] w-8 bg-gray-200 mx-auto mb-2 md:mb-3 group-hover:bg-orange-400 transition-colors duration-300"></div>
-                    <p className="text-[10px] md:text-xs text-gray-500 leading-snug line-clamp-3 w-full px-1">{member.bio}</p>
+                    <p className="text-[9px] md:text-xs text-orange-500 font-bold uppercase tracking-wider mb-2">{member.designation}</p>
+                    
+                    {/* Conditional Bio for Grid */}
+                    {member.bio && member.bio.trim() !== '' && (
+                      <>
+                        <div className="h-[2px] w-8 bg-gray-200 mx-auto my-2 group-hover:bg-orange-400 transition-colors duration-300"></div>
+                        <p className="text-[10px] md:text-xs text-gray-500 leading-snug line-clamp-3 w-full px-1">{member.bio}</p>
+                      </>
+                    )}
                   </div>
                 </div>
               ))}
@@ -129,70 +141,76 @@ export const TeamSection: React.FC = () => {
         )}
       </div>
 
-      {/* --- TEAM MEMBER MODAL POPUP --- */}
+      {/* --- PREMIUM TEAM MEMBER MODAL POPUP --- */}
       {selectedMember && (
         <div className="fixed inset-0 z-[100] flex items-center justify-center p-4 sm:p-6">
-          {/* Backdrop */}
+          
+          {/* Backdrop Blur */}
           <div 
-            className="absolute inset-0 bg-gray-900/60 backdrop-blur-sm transition-opacity" 
+            className="absolute inset-0 bg-gray-900/70 backdrop-blur-sm transition-opacity" 
             onClick={() => setSelectedMember(null)}
           ></div>
           
-          {/* Modal Content */}
-          <div className="relative bg-white rounded-3xl w-full max-w-2xl shadow-[0_20px_60px_-15px_rgba(0,0,0,0.3)] overflow-hidden flex flex-col md:flex-row animate-[popIn_0.3s_ease-out]">
+          {/* Modal Container */}
+          <div className="relative bg-white rounded-3xl w-full max-w-xl shadow-[0_20px_60px_-15px_rgba(0,0,0,0.4)] overflow-hidden flex flex-col animate-[popIn_0.3s_ease-out] max-h-[90vh] overflow-y-auto custom-scrollbar">
             
-            <button 
-              onClick={() => setSelectedMember(null)}
-              className="absolute top-4 right-4 z-20 p-2 bg-white/80 md:bg-gray-50 hover:bg-gray-200 text-gray-600 rounded-full transition-colors backdrop-blur-md"
-            >
-              <X className="w-5 h-5" />
-            </button>
-
-            {/* Left Image Side (Top on mobile) */}
-            <div className="w-full md:w-2/5 h-64 md:h-auto bg-gray-100 relative shrink-0">
-              <img 
-                src={selectedMember.imageUrl} 
-                alt={selectedMember.name} 
-                className="w-full h-full object-cover object-top" 
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-gray-900/60 to-transparent md:hidden"></div>
+            {/* Top Architectural Banner */}
+            <div className="h-32 md:h-40 w-full bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 relative shrink-0">
+              <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-20 mix-blend-overlay"></div>
+              {/* Floating Close Button */}
+              <button 
+                onClick={() => setSelectedMember(null)}
+                className="absolute top-4 right-4 z-20 p-2.5 bg-white/10 hover:bg-white text-white hover:text-gray-900 backdrop-blur-md rounded-full transition-all duration-300 shadow-sm"
+              >
+                <X className="w-5 h-5" />
+              </button>
             </div>
 
-            {/* Right Text Side (Bottom on mobile) */}
-            <div className="w-full md:w-3/5 p-6 md:p-8 flex flex-col relative z-10 -mt-6 md:mt-0 bg-white rounded-t-3xl md:rounded-none">
+            {/* Content Area */}
+            <div className="px-6 md:px-10 pb-10 relative">
               
-              {selectedMember.isCeo && (
-                <div className="mb-4 inline-block bg-orange-100 text-orange-600 px-3 py-1 rounded-md text-[10px] uppercase font-bold tracking-widest border border-orange-200">
-                  Leadership
+              {/* Overlapping Profile Avatar */}
+              <div className="flex justify-between items-end -mt-16 md:-mt-20 mb-6">
+                <div className="w-32 h-32 md:w-40 md:h-40 rounded-2xl shadow-xl border-4 border-white overflow-hidden relative z-10 bg-gray-100">
+                  <img 
+                    src={selectedMember.imageUrl} 
+                    alt={selectedMember.name} 
+                    className="w-full h-full object-cover object-top" 
+                  />
                 </div>
-              )}
-
-              <h3 className="text-2xl md:text-3xl font-serif font-bold text-gray-900 mb-1">{selectedMember.name}</h3>
-              <p className="text-orange-500 font-bold uppercase tracking-wider text-xs md:text-sm mb-5">{selectedMember.designation}</p>
-              
-              <div className="w-12 h-[2px] bg-gray-200 mb-6"></div>
-              
-              <div className="flex-1 overflow-y-auto pr-2 custom-scrollbar">
-                <p className="text-gray-600 text-sm md:text-base leading-relaxed whitespace-pre-line">
-                  {selectedMember.bio || "Detailed biography currently unavailable."}
-                </p>
+                
+                {/* Leadership Badge (Shows only if CEO) */}
+                {selectedMember.isCeo && (
+                  <div className="mb-2 bg-gradient-to-r from-orange-400 to-orange-500 text-white px-3 py-1.5 rounded-lg text-[10px] md:text-xs uppercase font-bold tracking-widest shadow-md">
+                    Leadership
+                  </div>
+                )}
               </div>
 
-              <div className="mt-8 pt-6 border-t border-gray-100 flex items-center justify-between">
-                <a 
-                  href="mailto:mannandesigngroup@gmail.com" 
-                  className="flex items-center gap-2 text-sm font-bold text-gray-500 hover:text-orange-500 transition-colors"
-                >
-                  <Mail className="w-4 h-4" /> Contact Team
-                </a>
+              {/* Text Information */}
+              <div>
+                <h3 className="text-3xl md:text-4xl font-serif font-bold text-gray-900 mb-1 leading-tight">{selectedMember.name}</h3>
+                <p className="text-orange-500 font-bold uppercase tracking-[0.15em] text-xs md:text-sm">{selectedMember.designation}</p>
+                
+                {/* Conditional Bio for Modal */}
+                {selectedMember.bio && selectedMember.bio.trim() !== '' && (
+                  <>
+                    <div className="w-16 h-[3px] bg-gray-200 my-6 md:my-8"></div>
+                    <div className="prose prose-gray max-w-none">
+                      <p className="text-gray-600 text-sm md:text-base leading-relaxed whitespace-pre-line">
+                        {selectedMember.bio}
+                      </p>
+                    </div>
+                  </>
+                )}
               </div>
+
             </div>
-
           </div>
         </div>
       )}
 
-      {/* Reusing the popIn animation for Team Section as well */}
+      {/* PopIn Animation Keyframes */}
       <style dangerouslySetInnerHTML={{__html: `
         @keyframes popIn {
           0% { opacity: 0; transform: scale(0.95) translateY(10px); }

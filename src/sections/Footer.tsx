@@ -33,9 +33,9 @@ export const Footer: React.FC = () => {
             </div>
             
             <div className="space-y-1 mb-6 text-sm">
-              <p>Ofc No . 7075 773119</p>
-              <p>Cell No . 9848 773119</p>
-              <p>Email: <a href="mailto:mannandesigngroup@gmail.com" className="hover:text-white transition-colors">mannandesigngroup@gmail.com</a></p>
+              <p>Ofc No . <a href="tel:+917075773119" className="hover:text-orange-500 transition-colors">7075 773119</a></p>
+              <p>Cell No . <a href="tel:+919848773119" className="hover:text-orange-500 transition-colors">9848 773119</a></p>
+              <p>Email: <a href="mailto:mannandesigngroup@gmail.com" className="hover:text-orange-500 transition-colors">mannandesigngroup@gmail.com</a></p>
             </div>
             
             <div className="w-12 h-[2px] bg-orange-500 mb-6"></div>
@@ -78,7 +78,7 @@ export const Footer: React.FC = () => {
               Quick Links
             </h4>
             <nav className="flex flex-col gap-4">
-              {['Motto', 'Team', 'Projects', 'Services', 'Contact'].map((link) => (
+              {['Motto', 'About', 'Team', 'Projects', 'Services', 'Contact'].map((link) => (
                 <a key={link} href={`#${link.toLowerCase()}`} className="flex items-center gap-3 hover:text-orange-500 transition-colors group text-sm border-b border-gray-800 pb-3 xl:border-none xl:pb-0">
                   <ChevronRight className="w-4 h-4 text-orange-500 transform group-hover:translate-x-1 transition-transform" />
                   {link}
@@ -93,38 +93,43 @@ export const Footer: React.FC = () => {
               Contact Us
             </h4>
             <div className="space-y-6">
-              <div className="flex items-start gap-4 group cursor-pointer border-b border-gray-800 pb-4 xl:border-none xl:pb-0">
+              
+              {/* Office Number Clickable Link */}
+              <a href="tel:+917075773119" className="flex items-start gap-4 group cursor-pointer border-b border-gray-800 pb-4 xl:border-none xl:pb-0">
                 <div className="w-10 h-10 rounded-full border border-gray-700 flex items-center justify-center shrink-0 group-hover:border-orange-500 group-hover:bg-orange-500/10 transition-colors">
                   <Phone className="w-4 h-4 text-orange-500" />
                 </div>
                 <div>
                   <p className="text-xs text-gray-500 mb-0.5">Office Number</p>
-                  <p className="text-white text-sm">7075 773119</p>
+                  <p className="text-white text-sm group-hover:text-orange-500 transition-colors">7075 773119</p>
                 </div>
-              </div>
+              </a>
 
-              <div className="flex items-start gap-4 group cursor-pointer border-b border-gray-800 pb-4 xl:border-none xl:pb-0">
+              {/* Mobile/WhatsApp Clickable Link */}
+              <a href="tel:+919848773119" className="flex items-start gap-4 group cursor-pointer border-b border-gray-800 pb-4 xl:border-none xl:pb-0">
                 <div className="w-10 h-10 rounded-full border border-gray-700 flex items-center justify-center shrink-0 group-hover:border-orange-500 group-hover:bg-orange-500/10 transition-colors">
                   <Smartphone className="w-4 h-4 text-orange-500" />
                 </div>
                 <div>
                   <p className="text-xs text-gray-500 mb-0.5">Mobile Number / WhatsApp</p>
-                  <p className="text-white text-sm">9848 773119</p>
+                  <p className="text-white text-sm group-hover:text-orange-500 transition-colors">9848 773119</p>
                 </div>
-              </div>
+              </a>
 
-              <div className="flex items-start gap-4 group cursor-pointer border-b border-gray-800 pb-4 xl:border-none xl:pb-0">
+              {/* Email Clickable Link */}
+              <a href="mailto:mannandesigngroup@gmail.com" className="flex items-start gap-4 group cursor-pointer border-b border-gray-800 pb-4 xl:border-none xl:pb-0">
                 <div className="w-10 h-10 rounded-full border border-gray-700 flex items-center justify-center shrink-0 group-hover:border-orange-500 group-hover:bg-orange-500/10 transition-colors">
                   <Mail className="w-4 h-4 text-orange-500" />
                 </div>
-                <div>
+                <div className="overflow-hidden">
                   <p className="text-xs text-gray-500 mb-0.5">Email Address</p>
-                  <p className="text-white text-sm truncate pr-4">mannandesigngroup@gmail.com</p>
+                  <p className="text-white text-sm truncate pr-4 group-hover:text-orange-500 transition-colors">mannandesigngroup@gmail.com</p>
                 </div>
-              </div>
+              </a>
 
-              <div className="flex items-start gap-4 group cursor-pointer border-b border-gray-800 pb-4 xl:border-none xl:pb-0">
-                <div className="w-10 h-10 rounded-full border border-gray-700 flex items-center justify-center shrink-0 group-hover:border-orange-500 group-hover:bg-orange-500/10 transition-colors">
+              {/* Location Card */}
+              <div className="flex items-start gap-4 border-b border-gray-800 pb-4 xl:border-none xl:pb-0">
+                <div className="w-10 h-10 rounded-full border border-gray-700 flex items-center justify-center shrink-0">
                   <MapPin className="w-4 h-4 text-orange-500" />
                 </div>
                 <div>
