@@ -1,0 +1,6 @@
+# https://www.robotstxt.org/robotstxt.html
+User-agent: *
+Allow: /
+
+# Point crawlers to the sitemap
+Sitemap: https://www.yourdomain.com/sitemap.xml
