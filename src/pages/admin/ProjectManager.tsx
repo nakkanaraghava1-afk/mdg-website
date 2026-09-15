@@ -167,13 +167,9 @@ export const ProjectManager: React.FC = () => {
       {/* Premium Side-Drawer Modal */}
       {isModalOpen && (
         <div className="fixed inset-0 z-50 flex justify-end">
-          {/* Backdrop */}
           <div className="absolute inset-0 bg-gray-900/30 backdrop-blur-sm transition-opacity" onClick={() => setIsModalOpen(false)}></div>
           
-          {/* Drawer */}
           <div className="bg-white w-full max-w-2xl h-full shadow-2xl flex flex-col relative z-10 animate-slide-in-right">
-            
-            {/* Drawer Header */}
             <div className="p-6 border-b border-gray-100 flex justify-between items-center bg-gray-50/80 shrink-0">
               <div>
                 <h3 className="font-bold text-gray-900 text-xl font-serif">{editingId ? 'Edit Project Details' : 'Create New Project'}</h3>
@@ -184,7 +180,6 @@ export const ProjectManager: React.FC = () => {
               </button>
             </div>
             
-            {/* Drawer Form Body */}
             <form id="project-form" onSubmit={handleSave} className="p-8 overflow-y-auto space-y-6 flex-1 custom-scrollbar">
               
               <div>
@@ -218,14 +213,16 @@ export const ProjectManager: React.FC = () => {
                 <textarea required rows={4} className="w-full border border-gray-200 rounded-xl p-3 bg-gray-50 focus:bg-white focus:ring-2 focus:ring-orange-500/20 focus:border-orange-500 outline-none transition-all resize-none" value={formData.detailedDescription} onChange={e => setFormData({...formData, detailedDescription: e.target.value})} />
               </div>
 
+              {/* REMOVED REQUIRED ATTRIBUTE FOR SCOPE OF WORK */}
               <div>
-                <label className="block text-xs font-bold text-gray-700 uppercase tracking-wider mb-2">Scope of Work (Comma separated) *</label>
-                <textarea required rows={2} placeholder="Structural analysis, Foundation design..." className="w-full border border-gray-200 rounded-xl p-3 bg-gray-50 focus:bg-white focus:ring-2 focus:ring-orange-500/20 focus:border-orange-500 outline-none transition-all resize-none" value={formData.scopeOfWork} onChange={e => setFormData({...formData, scopeOfWork: e.target.value})} />
+                <label className="block text-xs font-bold text-gray-700 uppercase tracking-wider mb-2">Scope of Work <span className="text-gray-400 font-medium normal-case">(Optional, comma separated)</span></label>
+                <textarea rows={2} placeholder="e.g. Structural analysis, Foundation design..." className="w-full border border-gray-200 rounded-xl p-3 bg-gray-50 focus:bg-white focus:ring-2 focus:ring-orange-500/20 focus:border-orange-500 outline-none transition-all resize-none" value={formData.scopeOfWork} onChange={e => setFormData({...formData, scopeOfWork: e.target.value})} />
               </div>
 
+              {/* REMOVED REQUIRED ATTRIBUTE FOR ENGINEERING SERVICES */}
               <div>
-                <label className="block text-xs font-bold text-gray-700 uppercase tracking-wider mb-2">Engineering Services (Comma separated) *</label>
-                <textarea required rows={2} placeholder="Value Engineering, Technical Consultation..." className="w-full border border-gray-200 rounded-xl p-3 bg-gray-50 focus:bg-white focus:ring-2 focus:ring-orange-500/20 focus:border-orange-500 outline-none transition-all resize-none" value={formData.engineeringServices} onChange={e => setFormData({...formData, engineeringServices: e.target.value})} />
+                <label className="block text-xs font-bold text-gray-700 uppercase tracking-wider mb-2">Engineering Services <span className="text-gray-400 font-medium normal-case">(Optional, comma separated)</span></label>
+                <textarea rows={2} placeholder="e.g. Value Engineering, Technical Consultation..." className="w-full border border-gray-200 rounded-xl p-3 bg-gray-50 focus:bg-white focus:ring-2 focus:ring-orange-500/20 focus:border-orange-500 outline-none transition-all resize-none" value={formData.engineeringServices} onChange={e => setFormData({...formData, engineeringServices: e.target.value})} />
               </div>
 
               <div>
@@ -235,7 +232,6 @@ export const ProjectManager: React.FC = () => {
 
               <div className="flex gap-4 items-center bg-orange-50/50 p-5 rounded-xl border border-orange-100">
                 <label className="flex items-center gap-4 cursor-pointer flex-1 group">
-                  {/* Custom Toggle Switch */}
                   <div className="relative inline-flex items-center cursor-pointer">
                     <input type="checkbox" className="sr-only peer" checked={formData.isFeatured} onChange={e => setFormData({...formData, isFeatured: e.target.checked})} />
                     <div className="w-11 h-6 bg-gray-200 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-orange-500"></div>
@@ -253,7 +249,6 @@ export const ProjectManager: React.FC = () => {
               </div>
             </form>
 
-            {/* Drawer Footer Actions */}
             <div className="p-6 border-t border-gray-100 flex gap-4 shrink-0 bg-white shadow-[0_-4px_20px_rgba(0,0,0,0.02)]">
               <button type="button" onClick={() => setIsModalOpen(false)} className="flex-1 bg-gray-100 text-gray-700 py-3.5 rounded-xl font-bold hover:bg-gray-200 transition-colors">Cancel</button>
               <button type="submit" form="project-form" className="flex-1 bg-orange-500 text-white py-3.5 rounded-xl font-bold hover:bg-orange-600 shadow-lg shadow-orange-500/20 transition-all hover:-translate-y-0.5">

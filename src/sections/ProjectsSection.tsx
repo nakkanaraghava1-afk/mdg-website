@@ -7,14 +7,22 @@ import { ProjectModal } from '../components/ProjectModal';
 
 const FILTERS = ['All', 'Structural Design', 'Planning', 'Assessment', 'Rehabilitation'];
 
+// Fallback data with empty scopeOfWork and engineeringServices to demonstrate 
+// that the modal will cleanly hide these sections when not provided.
 const FALLBACK_PROJECTS: ProjectData[] = [
   {
-    id: '1', projectName: 'Riverside Business Park', category: 'Structural Design', location: 'Hyderabad, Telangana',
-    year: '2023', shortDescription: '', isFeatured: true, displayOrder: 1,
+    id: '1', 
+    projectName: 'Riverside Business Park', 
+    category: 'Structural Design', 
+    location: 'Hyderabad, Telangana',
+    year: '2023', 
+    shortDescription: '', 
+    isFeatured: true, 
+    displayOrder: 1,
     imageUrl: 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=800&auto=format&fit=crop',
-    detailedDescription: 'Riverside Business Park is a modern commercial development...',
-    scopeOfWork: 'Structural analysis, Foundation design',
-    engineeringServices: 'Structural Design, Value Engineering'
+    detailedDescription: 'Riverside Business Park is a modern commercial development designed to provide flexible workspaces with a strong focus on safety, sustainability, and long-term performance. The structural frame was optimized for high wind loads and maximum energy efficiency.',
+    scopeOfWork: '', // Left empty so the modal hides this section
+    engineeringServices: '' // Left empty so the modal hides this section
   }
 ];
 
@@ -96,7 +104,7 @@ export const ProjectsSection: React.FC = () => {
                 onClick={() => setSelectedProject(project)}
                 className="bg-white rounded-2xl shadow-[0_4px_15px_-4px_rgba(0,0,0,0.05)] border border-gray-100 overflow-hidden cursor-pointer group hover:shadow-[0_15px_35px_-10px_rgba(0,0,0,0.1)] hover:-translate-y-1.5 transition-all duration-500 flex flex-col relative"
               >
-                {/* Image Container - Height reduced for smaller cards */}
+                {/* Image Container */}
                 <div className="w-full h-36 md:h-48 relative overflow-hidden bg-gray-100">
                   <img src={project.imageUrl} alt={project.projectName} className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110" />
                   
@@ -115,7 +123,7 @@ export const ProjectsSection: React.FC = () => {
                   </div>
                 </div>
 
-                {/* Content - Paddings and text sizes reduced for mobile 2-col layout */}
+                {/* Content */}
                 <div className="p-3 md:p-5 flex-1 flex flex-col relative z-10 bg-white">
                   <h3 className="text-sm md:text-lg font-serif font-bold text-gray-900 mb-3 md:mb-4 group-hover:text-orange-600 transition-colors duration-300 line-clamp-2 leading-snug">{project.projectName}</h3>
                   
@@ -142,6 +150,7 @@ export const ProjectsSection: React.FC = () => {
 
       </div>
 
+      {/* Conditionally Render Modal */}
       {selectedProject && (
         <ProjectModal 
           project={selectedProject} 
