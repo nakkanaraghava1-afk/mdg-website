@@ -101,7 +101,7 @@ export const Footer: React.FC = () => {
                 </div>
                 <div>
                   <p className="text-xs text-gray-500 mb-0.5">Office Number</p>
-                  <p className="text-white text-sm group-hover:text-orange-500 transition-colors">7075 773119</p>
+                  <p className="text-white text-sm group-hover:text-orange-500 transition-colors">70757 73119</p>
                 </div>
               </a>
 
@@ -112,7 +112,7 @@ export const Footer: React.FC = () => {
                 </div>
                 <div>
                   <p className="text-xs text-gray-500 mb-0.5">Mobile Number / WhatsApp</p>
-                  <p className="text-white text-sm group-hover:text-orange-500 transition-colors">9848 773119</p>
+                  <p className="text-white text-sm group-hover:text-orange-500 transition-colors">98487 73119</p>
                 </div>
               </a>
 

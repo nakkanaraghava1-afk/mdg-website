@@ -90,8 +90,8 @@ export const ContactSection: React.FC = () => {
                 </div>
                 <div className="flex-1">
                   <p className="text-[11px] font-bold tracking-widest text-gray-400 uppercase mb-1">Direct Chat</p>
-                  <p className="text-xl font-bold text-gray-900 leading-none mb-1.5">7075 773119</p>
-                  <p className="text-sm text-gray-500">Available Mon-Sat, 9AM-6PM</p>
+                  <p className="text-xl font-bold text-gray-900 leading-none mb-1.5">70757 73119</p>
+                  <p className="text-sm text-gray-500">Available Mon-Sat, 10AM-6PM</p>
                 </div>
                 <div className="w-10 h-10 rounded-full bg-gray-50 flex items-center justify-center text-green-500 group-hover:bg-green-50 transition-colors border border-gray-100 group-hover:border-green-200">
                   <ArrowRight className="w-5 h-5 transform group-hover:translate-x-1 transition-transform" />

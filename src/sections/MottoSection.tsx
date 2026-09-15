@@ -93,16 +93,7 @@ export const MottoSection: React.FC = () => {
       </div>
 
       {/* --- SCROLL INDICATOR --- */}
-      <div 
-        className={`absolute bottom-12 left-6 md:left-12 flex items-center gap-4 transition-all duration-1000 delay-[800ms] ease-out ${isMounted ? 'opacity-100' : 'opacity-0'}`}
-      >
-        <div className="flex flex-col items-center gap-2">
-          <span className="text-[9px] uppercase tracking-[0.3em] text-gray-400 font-bold -rotate-90 origin-left translate-y-6 translate-x-1.5">Scroll</span>
-          <div className="w-[1px] h-12 bg-white/20 relative overflow-hidden mt-6">
-            <div className="w-full h-1/2 bg-orange-500 animate-[scrollDown_2s_ease-in-out_infinite]"></div>
-          </div>
-        </div>
-      </div>
+    
 
       {/* Global Animation Keyframes */}
       <style dangerouslySetInnerHTML={{__html: `
